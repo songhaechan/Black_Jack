@@ -1,6 +1,7 @@
-public final class Card {
+public final class Card{
     private final String cardShape;
     private final String cardNum;
+
     public Card(String cardShape, String cardNum) {
         this.cardShape = cardShape;
         this.cardNum = cardNum;
