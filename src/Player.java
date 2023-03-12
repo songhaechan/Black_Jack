@@ -1,9 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Player implements CardSetting{
     private final ArrayList<Card> playerCards = new ArrayList<Card>();// 플레이어의 카드
@@ -61,7 +56,7 @@ public class Player implements CardSetting{
 
     @Override
     public void printCard(){
-        System.out.print("Player: "+playerCards);
+        System.out.print("Player's Cards : "+playerCards);
     }
 
 

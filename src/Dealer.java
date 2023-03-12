@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-
 public class Dealer implements CardSetting{
     private final ArrayList<Card> dealerCards = new ArrayList<Card>();
     String[] cardNum;
@@ -57,9 +54,13 @@ public class Dealer implements CardSetting{
 
     @Override
     public void printCard(){
-        System.out.print(dealerCards);
+        System.out.print("Dealer: "+"["+ dealerCards.get(0)+ ", Card is hidden ]");
+    }
+
+    public void printCardAll(){
+        System.out.print("Dealer's Cards : "+dealerCards);
+        System.out.println();
+        System.out.println("Dealer Score : "+getScore());
     }
 
 }
-
-//"Dealer: "+"["+ dealerCards.get(0)+ ", Card is hidden ]"

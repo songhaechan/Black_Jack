@@ -23,15 +23,32 @@ public class BlackJackService {
         dealer.cardAdd(Deck.cardDeck.get(++cardPointer));
         dealer.cardAdd(Deck.cardDeck.get(++cardPointer));
     }
-    public void fristPrint(){
+    public int playerScore(){ return player.getScore(); }
+    public int dealerScore(){ return dealer.getScore(); }
+    public void Print(){
         player.printCard();
         System.out.println();
-        System.out.println("Player Score : "+player.getScore());
+        System.out.println("Player Score : "+playerScore());
         System.out.println();
         dealer.printCard();
         System.out.println();
-        System.out.println("Dealer Score : "+dealer.getScore());
+
+    }
+    public void playerHit(){
+        player.cardAdd(Deck.cardDeck.get(++cardPointer));
+        Print();
     }
 
+    public void playerStand(){
+        int check = dealerScore();
+        while(check < 17){
+            dealer.cardAdd(Deck.cardDeck.get(++cardPointer));
+            check = dealerScore();
+        }
+        player.printCard();
+        System.out.println();
+        System.out.println("Player Score : "+playerScore());
+        dealer.printCardAll();
+    }
 
 }
