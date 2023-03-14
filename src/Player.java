@@ -11,6 +11,9 @@ public class Player implements CardSetting{
             cardNum[i] = playerCards.get(i).getCardNum();
         }
     }
+    public void clearCard(){ // 플레이어 카드 리셋
+        playerCards.clear();
+    }
 
     public int getScore(){
         int score = 0;
@@ -58,7 +61,5 @@ public class Player implements CardSetting{
     public void printCard(){
         System.out.print("Player's Cards : "+playerCards+"\n");
     }
-
-
 }
 

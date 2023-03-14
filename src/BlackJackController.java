@@ -10,15 +10,23 @@ public class BlackJackController {
         Scanner scan = new Scanner(System.in);
         boolean control1 = true;
         boolean control2 = true;
+        int initControl = 0;
         while(control1){
+            if(initControl != 0){
+                bjs.clearCard();
+                bjs.setCard();
+            }
+            initControl++;
             System.out.println("<<BlackJack>>");
             System.out.println("1.start game");
             System.out.println("2.Exit");
             System.out.print("Choose your menu:");
             int menu = scan.nextInt();
             if(menu == 1){
-                bjs.Print();
-                if(bjs.playerScore() == 21){
+                control2 = true;
+                bjs.playPrint();
+                if(bjs.getPlayerScore() == 21){
+                    bjs.resultPrint();
                     System.out.println("Player Win!");
                     break;
                 }
@@ -35,18 +43,17 @@ public class BlackJackController {
                 switch(menu){
                     case 1:
                         bjs.playerHit();
-                        if(bjs.playerScore() > 21){
-                            bjs.dealer.printCardAll();
-                            System.out.println();
+                        if(bjs.getPlayerScore() > 21){
+                            bjs.resultPrint();
                             System.out.println("Busted! Player loses."+"\n");
                             control2 = false;
                             break;
-                        }else if(bjs.playerScore() == 21){
-                            bjs.dealer.printCardAll();
+                        }else if(bjs.getPlayerScore() == 21){
+                            bjs.resultPrint();
                             System.out.println("Player Win!"+"\n");
                             control2 = false;
                             break;
-                        }else if(bjs.playerScore() == bjs.dealerScore()){
+                        }else if(bjs.getPlayerScore() == bjs.getDealerScore()){
                             System.out.println("Draw"+"\n");
                             control2 = false;
                             break;
@@ -54,16 +61,16 @@ public class BlackJackController {
                         break;
                     case 2:
                         bjs.playerStand();
-                        if(bjs.playerScore() > bjs.dealerScore()){
+                        if(bjs.getPlayerScore() > bjs.getDealerScore()){
                             System.out.println("Player Win!"+"\n");
                             control2 = false;
                             break;
                         }else{
-                            if(bjs.dealerScore() > 21){
+                            if(bjs.getDealerScore() > 21){
                                 System.out.println("Player Win!"+"\n");
                                 control2 = false;
                                 break;
-                            }else if(bjs.playerScore() == bjs.dealerScore()){
+                            }else if(bjs.getPlayerScore() == bjs.getDealerScore()){
                                 System.out.println("Draw"+"\n");
                                 control2 = false;
                                 break;

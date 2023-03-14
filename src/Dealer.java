@@ -11,6 +11,14 @@ public class Dealer implements CardSetting{
         }
     }
 
+    public void clearCard(){ // 플레이어 카드 리셋
+        dealerCards.clear();
+    }
+
+    public ArrayList<Card> getDealerCards(){
+        return dealerCards;
+    }
+
     public int getScore(){
         int score = 0;
         setCardNumber();
@@ -54,13 +62,7 @@ public class Dealer implements CardSetting{
 
     @Override
     public void printCard(){
-        System.out.print("Dealer's Cards: "+"["+ dealerCards.get(0)+ ", Card was hidden ]");
-    }
-
-    public void printCardAll(){
-        System.out.print("Dealer's Cards : "+dealerCards);
-        System.out.println();
-        System.out.println("Dealer Score : "+getScore()+"\n");
+        System.out.print("Dealer's Cards: "+"["+ dealerCards.get(0)+ ", Card was hidden ]"+"\n");
     }
 
 }
