@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 public class Dealer implements CardSetting{
     private final ArrayList<Card> dealerCards = new ArrayList<Card>();
-    String[] cardNum;
+    String[] cardNum; // card 클래스에서 cardNum 멤머를 저장할 객체배열
     @Override
-    public void setCardNumber(){
+    public void setCardNumber(){ // cardNum 객체를 하나씩 가져와 객체배열에 저장
         int size = dealerCards.size();
         cardNum = new String[size];
         for(int i=0; i<size; i++){
             cardNum[i] = dealerCards.get(i).getCardNum();
         }
     }
-
+    @Override
     public void clearCard(){ // 플레이어 카드 리셋
         dealerCards.clear();
     }
