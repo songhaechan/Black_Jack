@@ -16,7 +16,8 @@ public class BlackJackService {
     }
     public void shuffle(){ // 카드섞기
         Deck.cardShuffle();
-    }
+    } // 카드섞기
+
     public void setCard(){ // 플레이어와 딜러에게 2장씩 카드 배분
         player.cardAdd(Deck.cardDeck.get(++cardPointer));
         player.cardAdd(Deck.cardDeck.get(++cardPointer));
@@ -25,14 +26,10 @@ public class BlackJackService {
     }
     public int playerScore(){ return player.getScore(); }
     public int dealerScore(){ return dealer.getScore(); }
-    public void Print(){
+    public void Print(){ // 딜러와 플레이어의 카드,점수 출력
         player.printCard();
-        System.out.println();
         System.out.println("Player Score : "+playerScore());
-        System.out.println();
         dealer.printCard();
-        System.out.println();
-
     }
     public void playerHit(){
         player.cardAdd(Deck.cardDeck.get(++cardPointer));
@@ -46,7 +43,6 @@ public class BlackJackService {
             check = dealerScore();
         }
         player.printCard();
-        System.out.println();
         System.out.println("Player Score : "+playerScore());
         dealer.printCardAll();
     }

@@ -54,13 +54,13 @@ public class Dealer implements CardSetting{
 
     @Override
     public void printCard(){
-        System.out.print("Dealer: "+"["+ dealerCards.get(0)+ ", Card is hidden ]");
+        System.out.print("Dealer's Cards: "+"["+ dealerCards.get(0)+ ", Card was hidden ]");
     }
 
     public void printCardAll(){
         System.out.print("Dealer's Cards : "+dealerCards);
         System.out.println();
-        System.out.println("Dealer Score : "+getScore());
+        System.out.println("Dealer Score : "+getScore()+"\n");
     }
 
 }

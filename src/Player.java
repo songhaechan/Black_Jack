@@ -56,7 +56,7 @@ public class Player implements CardSetting{
 
     @Override
     public void printCard(){
-        System.out.print("Player's Cards : "+playerCards);
+        System.out.print("Player's Cards : "+playerCards+"\n");
     }
 
 
