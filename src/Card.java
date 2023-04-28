@@ -1,20 +1,26 @@
-public final class Card{
-    private final String cardShape;
-    private final String cardNum;
+public final class Card {
+    private String shape;
+    private String number;
+    private int score;
 
-    public Card(String cardShape, String cardNum) {
-        this.cardShape = cardShape;
-        this.cardNum = cardNum;
+    public Card(String shape) {
+        this.shape = shape;
     }
-    public String getCardShape() {
-        return cardShape;
+
+    public void setNumber(String number) {
+        this.number = number;
     }
-    public String getCardNum() {
-        return cardNum;
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return score;
     }
 
     @Override
     public String toString() {
-        return "CardShape = " + cardShape + " CardNum = " + cardNum;
+        return "CardShape = " + shape + " CardNum = " + number;
     }
 }
