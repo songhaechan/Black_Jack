@@ -18,6 +18,61 @@ Java를 활용하여 구현한 콘솔 기반의 블랙잭 게임 프로젝트입
 
 ## 프로젝트 구조
 
+```mermaid
+classDiagram
+    class BlackJack {
+        +main(String[] args)
+    }
+    class BlackJackAssembler {
+        +createAndWire()
+    }
+    class BlackJackGame {
+        -CardDeck deck
+        -Player player
+        -Dealer dealer
+        -BlackJackMenuLocator locator
+        -BlackJackPrinter printer
+        +start()
+    }
+    class BlackJackMenuLocator {
+        -Player player
+        -Dealer dealer
+        -BlackJackPrinter printer
+        +executeMainMenu(int menu)
+        +executeHitStandMenu(int menu)
+    }
+    class BlackJackPrinter {
+        +entranceView()
+        +hitStandView()
+        +scorePrint()
+    }
+    class CardDeck {
+        -List~Card~ cardDeck
+        +createCards()
+        +cardShuffle()
+        +getScore(BlackJackPlayer bp)
+    }
+    class BlackJackPlayer {
+        <<abstract>>
+        -List~Card~ cards
+        +cardAdd(Card card)
+    }
+
+    BlackJack ..> BlackJackAssembler : uses
+    BlackJackAssembler --> BlackJackGame : creates & wires
+    BlackJackAssembler --> BlackJackMenuLocator : creates
+    BlackJackAssembler --> BlackJackPrinter : creates
+    BlackJackGame --> BlackJackMenuLocator : uses
+    BlackJackGame --> BlackJackPrinter : uses
+    BlackJackGame --> CardDeck : uses
+    BlackJackMenuLocator --> BlackJackPrinter : uses
+    CardDeck "1" -- "*" Card : contains
+    BlackJackPlayer <|-- Player
+    BlackJackPlayer <|-- Dealer
+    BlackJackGame --> Player : manages
+    BlackJackGame --> Dealer : manages
+```
+
 이 프로젝트는 객체 지향 설계를 토대로 구현되었습니다.
 
 ### `./src` 디렉토리
