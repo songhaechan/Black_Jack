@@ -2,6 +2,9 @@
 
 Java를 활용하여 구현한 콘솔 기반의 블랙잭 게임 프로젝트입니다.
 
+<img width="583" height="337" alt="스크린샷 2026-03-04 오전 11 33 52" src="https://github.com/user-attachments/assets/efd31166-06b0-44ae-8f1e-7699ebc09ac3" />
+
+
 ## 실행 방법
 
 1.  **소스 코드 컴파일**
